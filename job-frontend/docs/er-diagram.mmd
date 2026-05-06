@@ -1,0 +1,59 @@
+erDiagram
+    STUDENT ||--o{ APPLICATION : applies
+    JOB ||--o{ APPLICATION : receives
+    STUDENT ||--o{ SAVED_JOB : saves
+    JOB ||--o{ SAVED_JOB : bookmarked
+
+    STUDENT {
+        ObjectId _id PK
+        string name
+        string email UK
+        string password
+        string phone
+        string degree
+        string branch
+        string_array skills
+        boolean resumeUploaded
+        number profileComplete
+        date createdAt
+        date updatedAt
+    }
+
+    JOB {
+        ObjectId _id PK
+        string title
+        string company
+        string location
+        string type
+        string duration
+        string stipend
+        string_array skills
+        string description
+        string_array requirements
+        date postedDate
+        date deadline
+        string applicationLink
+        string source
+        string externalJobId
+        date createdAt
+        date updatedAt
+    }
+
+    APPLICATION {
+        ObjectId _id PK
+        ObjectId studentId FK
+        ObjectId jobId FK
+        date appliedDate
+        string status
+        date createdAt
+        date updatedAt
+    }
+
+    SAVED_JOB {
+        ObjectId _id PK
+        ObjectId studentId FK
+        ObjectId jobId FK
+        date savedDate
+        date createdAt
+        date updatedAt
+    }

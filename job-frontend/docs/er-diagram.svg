@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <style>
+    .page { fill: #f8fafc; }
+    .entity { fill: #ffffff; stroke: #2563eb; stroke-width: 2; rx: 8; }
+    .header { fill: #2563eb; }
+    .title { fill: #ffffff; font: 700 18px Arial, sans-serif; }
+    .field { fill: #111827; font: 14px Arial, sans-serif; }
+    .key { fill: #dc2626; font: 700 14px Arial, sans-serif; }
+    .relation { stroke: #374151; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    .label { fill: #374151; font: 700 14px Arial, sans-serif; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#374151" />
+    </marker>
+  </defs>
+
+  <rect class="page" x="0" y="0" width="1200" height="760" />
+  <text x="600" y="42" text-anchor="middle" fill="#111827" font-family="Arial, sans-serif" font-size="28" font-weight="700">
+    Job / Internship System ER Diagram
+  </text>
+
+  <!-- Student -->
+  <rect class="entity" x="70" y="95" width="310" height="330" />
+  <rect class="header" x="70" y="95" width="310" height="45" />
+  <text class="title" x="225" y="124" text-anchor="middle">STUDENT</text>
+  <text class="key" x="95" y="170">_id : ObjectId (PK)</text>
+  <text class="field" x="95" y="198">name : String</text>
+  <text class="key" x="95" y="226">email : String (Unique)</text>
+  <text class="field" x="95" y="254">password : String</text>
+  <text class="field" x="95" y="282">phone : String</text>
+  <text class="field" x="95" y="310">degree : String</text>
+  <text class="field" x="95" y="338">branch : String</text>
+  <text class="field" x="95" y="366">skills : Array[String]</text>
+  <text class="field" x="95" y="394">resumeUploaded : Boolean</text>
+
+  <!-- Job -->
+  <rect class="entity" x="820" y="95" width="310" height="385" />
+  <rect class="header" x="820" y="95" width="310" height="45" />
+  <text class="title" x="975" y="124" text-anchor="middle">JOB</text>
+  <text class="key" x="845" y="170">_id : ObjectId (PK)</text>
+  <text class="field" x="845" y="198">title : String</text>
+  <text class="field" x="845" y="226">company : String</text>
+  <text class="field" x="845" y="254">location : String</text>
+  <text class="field" x="845" y="282">type : String</text>
+  <text class="field" x="845" y="310">duration : String</text>
+  <text class="field" x="845" y="338">stipend : String</text>
+  <text class="field" x="845" y="366">skills : Array[String]</text>
+  <text class="field" x="845" y="394">description : String</text>
+  <text class="field" x="845" y="422">requirements : Array[String]</text>
+  <text class="field" x="845" y="450">deadline : Date</text>
+
+  <!-- Application -->
+  <rect class="entity" x="445" y="115" width="310" height="215" />
+  <rect class="header" x="445" y="115" width="310" height="45" />
+  <text class="title" x="600" y="144" text-anchor="middle">APPLICATION</text>
+  <text class="key" x="470" y="190">_id : ObjectId (PK)</text>
+  <text class="key" x="470" y="218">studentId : ObjectId (FK)</text>
+  <text class="key" x="470" y="246">jobId : ObjectId (FK)</text>
+  <text class="field" x="470" y="274">appliedDate : Date</text>
+  <text class="field" x="470" y="302">status : String</text>
+
+  <!-- Saved Job -->
+  <rect class="entity" x="445" y="435" width="310" height="185" />
+  <rect class="header" x="445" y="435" width="310" height="45" />
+  <text class="title" x="600" y="464" text-anchor="middle">SAVED_JOB</text>
+  <text class="key" x="470" y="510">_id : ObjectId (PK)</text>
+  <text class="key" x="470" y="538">studentId : ObjectId (FK)</text>
+  <text class="key" x="470" y="566">jobId : ObjectId (FK)</text>
+  <text class="field" x="470" y="594">savedDate : Date</text>
+
+  <!-- Relationships -->
+  <path class="relation" d="M380 220 C410 220 415 220 445 220" />
+  <text class="label" x="392" y="205">applies</text>
+
+  <path class="relation" d="M755 220 C785 220 790 220 820 220" />
+  <text class="label" x="770" y="205">receives</text>
+
+  <path class="relation" d="M380 520 C410 520 415 520 445 520" />
+  <text class="label" x="392" y="505">saves</text>
+
+  <path class="relation" d="M755 520 C790 520 790 405 820 405" />
+  <text class="label" x="770" y="500">saved as</text>
+
+  <text x="225" y="455" text-anchor="middle" class="label">1 student can have many applications and saved jobs</text>
+  <text x="975" y="510" text-anchor="middle" class="label">1 job can have many applications and saves</text>
+</svg>
