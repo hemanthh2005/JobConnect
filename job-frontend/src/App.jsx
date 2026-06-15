@@ -49,7 +49,7 @@ function AppRoutes() {
   const { userRole } = useApp();
 
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Routes>
         {/* Landing Page */}
         <Route path="/" element={<LandingPage />} />

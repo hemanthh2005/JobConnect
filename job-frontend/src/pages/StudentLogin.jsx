@@ -12,8 +12,7 @@ import {
 } from "react-icons/fi";
 import { useApp } from "../context/AppContext";
 import { GoogleLogin } from "@react-oauth/google";
-
-const API_URL = "http://localhost:5000";
+import { API_URL } from "../utils/jobsApi";
 
 const StudentLogin = () => {
   const navigate = useNavigate();

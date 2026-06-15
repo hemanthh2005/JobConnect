@@ -10,8 +10,7 @@ import {
   FiX,
 } from "react-icons/fi";
 import { useApp } from "../context/AppContext";
-
-const API_URL = "http://localhost:5000";
+import { API_URL } from "../utils/jobsApi";
 
 const StudentProfile = () => {
   const { student, setStudent } = useApp();

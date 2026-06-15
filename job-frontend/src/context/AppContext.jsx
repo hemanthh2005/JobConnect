@@ -126,7 +126,7 @@ export const AppProvider = ({ children }) => {
       localStorage.setItem('jobconnect_student', JSON.stringify(nextStudent));
 
       if (nextStudent.email) {
-        fetch(`http://localhost:5000/profile/${encodeURIComponent(nextStudent.email)}`, {
+        fetch(`${API_URL}/profile/${encodeURIComponent(nextStudent.email)}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
